@@ -396,12 +396,14 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+
+// Apply debounce to scroll events
+window.addEventListener('scroll', debounce(scrollHeader, 10));
+window.addEventListener('scroll', debounce(scrollUp, 10));
+window.addEventListener('scroll', debounce(scrollActive, 10));
+
 /*=============== SMOOTH SCROLL TO TOP ===============*/
 document.getElementById('scroll-up').addEventListener('click', function(e) {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-// Apply debounce to scroll events
-window.addEventListener('scroll', debounce(scrollHeader, 10));
-window.addEventListener('scroll', debounce(scrollUp, 10));
-window.addEventListener('scroll', debounce(scrollActive, 10));
